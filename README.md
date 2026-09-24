@@ -62,12 +62,12 @@ The project provides practical experience with:
 
 ## PID Configuration
 
-The current PID parameters are:
+The current PID parameters used by `code.ino` are:
 
 ```cpp
-Kp = 65;
-Ki = 0.003;
-Kd = 18;
+Kp = 105.0;
+Ki = 0.02;
+Kd = 2.5;
 ```
 
 These parameters determine how aggressively the robot responds to deviations from the line.

@@ -10,69 +10,93 @@
 
 ---
 
-A high-speed line follower robot built using an ESP32 NodeMCU and an 8-array IR sensor. The robot uses a Proportional-Integral-Derivative (PID) control algorithm to achieve smooth, responsive, and accurate line tracking at high speeds.
+<div align="center"><samp>A high-speed line follower robot built using an ESP32 NodeMCU and an 8-array IR sensor. The robot uses a Proportional-Integral-Derivative (PID) control algorithm to achieve smooth, responsive, and accurate line tracking at high speeds.</samp></div>
 
 ---
 
-## Project Overview
+<div align="center">
+<samp><b>Project Overview</b></samp>
+</div>
 
-This project implements a high-speed autonomous line-following robot using an ESP32 as the main controller.
+<samp>This project implements a high-speed autonomous line-following robot using an ESP32 as the main controller.</samp>
 
-An 8-array IR sensor continuously detects the position of the line. The ESP32 processes the sensor readings, calculates the tracking error, and uses a PID controller to dynamically adjust the speed of the two motors.
+<samp>An 8-array IR sensor continuously detects the position of the line. The ESP32 processes the sensor readings, calculates the tracking error, and uses a PID controller to dynamically adjust the speed of the two motors.</samp>
 
-The system is designed to maintain stable tracking while handling curves and sharp turns at relatively high speeds.
+<samp>The system is designed to maintain stable tracking while handling curves and sharp turns at relatively high speeds.</samp>
 
-The project provides practical experience with:
+<samp>The project provides practical experience with:</samp>
 
-- Embedded systems
-- PID control
-- Sensor-based navigation
-- Motor control
-- Real-time data processing
-- Autonomous robotics
-
----
-
-## Project Images
-
-| Robot | Chassis |
-|-------|---------|
-| ![](pic1.jpeg) | ![](chasis.jpeg) |
+- <samp>Embedded systems</samp>
+- <samp>PID control</samp>
+- <samp>Sensor-based navigation</samp>
+- <samp>Motor control</samp>
+- <samp>Real-time data processing</samp>
+- <samp>Autonomous robotics</samp>
 
 ---
 
-## Features
+<div align="center">
+<samp><b>Project Images</b></samp>
+</div>
 
-- PID-based line tracking
-- High-speed operation
-- ESP32-based control system
-- 8-array IR sensor input
-- Responsive correction for line deviations
-- Support for sharp turns
-- Adjustable PID parameters
-- Analog sensor-based position detection
-- Dual DC motor control
+<table align="center">
+<tr><th><samp>Robot</samp></th><th><samp>Chassis</samp></th></tr>
+<tr><td><img src="pic1.jpeg" alt="Line Follower Robot"></td><td><img src="chasis.jpeg" alt="Line Follower Chassis"></td></tr>
+</table>
 
----
-
-## Hardware Components
-
-| Component | Quantity |
-|-----------|----------|
-| ESP32 NodeMCU | 1 |
-| TB6612FNG Motor Driver | 1 |
-| N20 Motors | 2 |
-| 8-Array IR Sensor | 1 |
-| Smart ELX Multiplexer | 1 |
-| 3.7V Li-ion Battery | 2 |
-| Buck Converter | 2 |
-| Chassis | 1 |
+<div align="center">
+<img src="pic2.jpeg" alt="Line Follower Project" width="70%">
+</div>
 
 ---
 
-## PID Configuration
+<div align="center">
+<samp><b>Features</b></samp>
+</div>
 
-The current PID parameters used by `code.ino` are:
+- <samp>PID-based line tracking</samp>
+- <samp>High-speed operation</samp>
+- <samp>ESP32-based control system</samp>
+- <samp>8-array IR sensor input</samp>
+- <samp>Responsive correction for line deviations</samp>
+- <samp>Support for sharp turns</samp>
+- <samp>Adjustable PID parameters</samp>
+- <samp>Analog sensor-based position detection</samp>
+- <samp>Dual DC motor control</samp>
+
+---
+
+<div align="center">
+<samp><b>Hardware Components</b></samp>
+</div>
+
+<table align="center">
+<tr><th><samp>Component</samp></th><th><samp>Quantity</samp></th></tr>
+<tr><td><samp>ESP32 NodeMCU</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>TB6612FNG Motor Driver</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>8-Array IR Sensor</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>Smart ELX RLS08 Sensor Board</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>Smart ELX 8-Channel Multiplexer</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>N20 DC Gear Motors</samp></td><td><samp>2</samp></td></tr>
+<tr><td><samp>Wheels</samp></td><td><samp>2</samp></td></tr>
+<tr><td><samp>Caster Wheel</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>3.7V Li-ion Batteries</samp></td><td><samp>2</samp></td></tr>
+<tr><td><samp>MP1584 Buck Converter</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>HW133A Buck Converter</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>Push Buttons</samp></td><td><samp>2</samp></td></tr>
+<tr><td><samp>Capacitors</samp></td><td><samp>As required</samp></td></tr>
+<tr><td><samp>Connecting Wires and Chassis</samp></td><td><samp>1 set</samp></td></tr>
+</table>
+
+<samp>The detailed component list is also available in <a href="components">components</a>.</samp>
+
+---
+
+<div align="center">
+<samp><b>PID Configuration</b></samp>
+</div>
+
+<samp>The current PID parameters used by <code>code.ino</code> are:</samp>
 
 ```cpp
 Kp = 105.0;
@@ -80,99 +104,117 @@ Ki = 0.02;
 Kd = 2.5;
 ```
 
-These parameters determine how aggressively the robot responds to deviations from the line.
+<samp>These parameters determine how aggressively the robot responds to deviations from the line.</samp>
 
-The values may need to be adjusted depending on:
+<samp>The values may need to be adjusted depending on:</samp>
 
-- Track surface
-- Line width
-- Sensor positioning
-- Motor characteristics
-- Battery voltage
-- Desired operating speed
+- <samp>Track surface</samp>
+- <samp>Line width</samp>
+- <samp>Sensor positioning</samp>
+- <samp>Motor characteristics</samp>
+- <samp>Battery voltage</samp>
+- <samp>Desired operating speed</samp>
 
-### PID Terms
+<div align="center">
+<samp><b>PID Terms</b></samp>
+</div>
 
-| Parameter | Function |
-|-----------|----------|
-| Kp | Controls the response to the current error |
-| Ki | Accounts for accumulated error over time |
-| Kd | Predicts and reduces rapid changes in error |
-
----
-
-## Wiring
-
-The complete wiring diagram is provided below.
-
-![Wiring Diagram](wiring.jpeg)
+<table align="center">
+<tr><th><samp>Parameter</samp></th><th><samp>Function</samp></th></tr>
+<tr><td><samp>Kp</samp></td><td><samp>Controls the response to the current error</samp></td></tr>
+<tr><td><samp>Ki</samp></td><td><samp>Accounts for accumulated error over time</samp></td></tr>
+<tr><td><samp>Kd</samp></td><td><samp>Predicts and reduces rapid changes in error</samp></td></tr>
+</table>
 
 ---
 
-## Repository Structure
+<div align="center">
+<samp><b>Wiring</b></samp>
+</div>
+
+<samp>The complete wiring diagram is provided below.</samp>
+
+<div align="center"><img src="wiring.jpeg" alt="Wiring Diagram" width="80%"></div>
+
+---
+
+<div align="center">
+<samp><b>Repository Structure</b></samp>
+</div>
 
 ```text
 line-follower/
 │
-├── code.ino
+├── components
+├── LICENSE
 ├── README.md
-├── wiring.jpeg
 ├── chasis.jpeg
+├── code.ino
 ├── pic1.jpeg
 ├── pic2.jpeg
-└── components/
+└── wiring.jpeg
 ```
+
+<samp>The repository keeps the Arduino sketch, documentation assets, component list, and license at the project root.</samp>
 
 ---
 
-## Getting Started
+<div align="center">
+<samp><b>Getting Started</b></samp>
+</div>
 
-### Prerequisites
+<samp><b>Prerequisites</b></samp>
 
-Before setting up the project, ensure that you have:
+<samp>Before setting up the project, ensure that you have:</samp>
 
-- Arduino IDE
-- ESP32 board support package
-- ESP32 NodeMCU
-- Required sensors and motor components
-- Appropriate power supply
-- USB cable for programming
+- <samp>Arduino IDE</samp>
+- <samp>ESP32 board support package</samp>
+- <samp>ESP32 NodeMCU</samp>
+- <samp>Required sensors and motor components</samp>
+- <samp>Appropriate power supply</samp>
+- <samp>USB cable for programming</samp>
 
-### Clone the Repository
+<samp><b>Clone the Repository</b></samp>
 
 ```bash
 git clone https://github.com/yo5on/line-follower.git
 cd line-follower
 ```
 
-### Open the Project
+<samp><b>Open the Project</b></samp>
 
-Open `code.ino` in the Arduino IDE.
+<samp>Open <code>code.ino</code> in the Arduino IDE.</samp>
 
-### Install Required Software
+<samp><b>Install Required Software</b></samp>
 
-Install the following through the Arduino IDE:
+<samp>Install the following through the Arduino IDE:</samp>
 
-- ESP32 Board Package
-- Wire Library
+- <samp>ESP32 Board Package</samp>
+- <samp>Wire Library</samp>
 
-### Configure the ESP32
+<samp><b>Configure the ESP32</b></samp>
 
-1. Connect the ESP32 to your computer.
-2. Select the appropriate ESP32 board.
-3. Select the correct COM port.
-4. Verify the wiring connections.
-5. Open `code.ino`.
+<samp>1. Connect the ESP32 to your computer.</samp>
 
-### Upload the Code
+<samp>2. Select the appropriate ESP32 board.</samp>
 
-Click **Upload** in the Arduino IDE and wait for the upload to complete.
+<samp>3. Select the correct COM port.</samp>
 
-After uploading, place the robot on the track and power the system.
+<samp>4. Verify the wiring connections.</samp>
+
+<samp>5. Open <code>code.ino</code>.</samp>
+
+<samp><b>Upload the Code</b></samp>
+
+<samp>Click <strong>Upload</strong> in the Arduino IDE and wait for the upload to complete.</samp>
+
+<samp>After uploading, place the robot on the track and power the system.</samp>
 
 ---
 
-## System Architecture
+<div align="center">
+<samp><b>System Architecture</b></samp>
+</div>
 
 ```text
 8-Array IR Sensor
@@ -196,19 +238,29 @@ After uploading, place the robot on the track and power the system.
 
 ---
 
-## Working Principle
+<div align="center">
+<samp><b>Working Principle</b></samp>
+</div>
 
-1. The 8-array IR sensor continuously detects the line position.
-2. Sensor readings are processed by the ESP32.
-3. The robot calculates the deviation, or error, from the desired line position.
-4. The PID controller calculates a correction value based on the current, accumulated, and rate of change of the error.
-5. The correction is applied to the motor speeds.
-6. The TB6612FNG motor driver controls the two N20 motors.
-7. This process repeats continuously, allowing the robot to follow the track while correcting deviations in real time.
+<samp>1. The 8-array IR sensor continuously detects the line position.</samp>
+
+<samp>2. Sensor readings are processed by the ESP32.</samp>
+
+<samp>3. The robot calculates the deviation, or error, from the desired line position.</samp>
+
+<samp>4. The PID controller calculates a correction value based on the current, accumulated, and rate of change of the error.</samp>
+
+<samp>5. The correction is applied to the motor speeds.</samp>
+
+<samp>6. The TB6612FNG motor driver controls the two N20 motors.</samp>
+
+<samp>7. This process repeats continuously, allowing the robot to follow the track while correcting deviations in real time.</samp>
 
 ---
 
-## PID Control Formula
+<div align="center">
+<samp><b>PID Control Formula</b></samp>
+</div>
 
 ```text
 PID Output =
@@ -217,71 +269,82 @@ PID Output =
 (Kd × Derivative)
 ```
 
-Where:
+<samp>Where:</samp>
 
-- **Error** represents the difference between the desired line position and the detected position.
-- **Integral** represents the accumulated error over time.
-- **Derivative** represents the rate of change of the error.
-- **Kp, Ki, and Kd** determine the contribution of each PID term.
-
----
-
-## Applications
-
-This project can be used as a platform for experimenting with:
-
-- Autonomous mobile robotics
-- PID-based control systems
-- Sensor-based navigation
-- Real-time motor control
-- Embedded systems
-- Autonomous vehicle concepts
-- Robotics competitions
+- <samp>Error represents the difference between the desired line position and the detected position.</samp>
+- <samp>Integral represents the accumulated error over time.</samp>
+- <samp>Derivative represents the rate of change of the error.</samp>
+- <samp>Kp, Ki, and Kd determine the contribution of each PID term.</samp>
 
 ---
 
-## Future Improvements
+<div align="center">
+<samp><b>Applications</b></samp>
+</div>
 
-Potential improvements include:
-
-- Automatic PID parameter tuning
-- Maze-solving algorithms
-- Junction detection
-- Bluetooth-based PID tuning
-- OLED debugging and telemetry display
-- Improved sensor calibration
-- Adaptive speed control
-- Advanced path-planning algorithms
-
----
-
-## Technologies
-
-| Category | Technology |
-|----------|------------|
-| Microcontroller | ESP32 NodeMCU |
-| Programming | C/C++ |
-| Development Environment | Arduino IDE |
-| Sensor | 8-Array IR Sensor |
-| Motor Driver | TB6612FNG |
-| Motors | N20 DC Motors |
-| Control Algorithm | PID |
-| Multiplexer | Smart ELX Multiplexer |
+- <samp>Autonomous mobile robotics</samp>
+- <samp>PID-based control systems</samp>
+- <samp>Sensor-based navigation</samp>
+- <samp>Real-time motor control</samp>
+- <samp>Embedded systems</samp>
+- <samp>Autonomous vehicle concepts</samp>
+- <samp>Robotics competitions</samp>
 
 ---
 
-## Author
+<div align="center">
+<samp><b>Future Improvements</b></samp>
+</div>
 
-**Yoson**
-
-Computer Science student interested in AI/ML, robotics, embedded systems, and automation.
-
-GitHub: https://github.com/yo5on
+- <samp>Automatic PID parameter tuning</samp>
+- <samp>Maze-solving algorithms</samp>
+- <samp>Junction detection</samp>
+- <samp>Bluetooth-based PID tuning</samp>
+- <samp>OLED debugging and telemetry display</samp>
+- <samp>Improved sensor calibration</samp>
+- <samp>Adaptive speed control</samp>
+- <samp>Advanced path-planning algorithms</samp>
 
 ---
 
-## License
+<div align="center">
+<samp><b>Technologies</b></samp>
+</div>
 
-This project is intended for educational and personal use. You are free to explore, modify, and extend the project for your own robotics and embedded systems experiments.
+<table align="center">
+<tr><th><samp>Category</samp></th><th><samp>Technology</samp></th></tr>
+<tr><td><samp>Microcontroller</samp></td><td><samp>ESP32 NodeMCU</samp></td></tr>
+<tr><td><samp>Programming</samp></td><td><samp>C/C++</samp></td></tr>
+<tr><td><samp>Development Environment</samp></td><td><samp>Arduino IDE</samp></td></tr>
+<tr><td><samp>Sensor</samp></td><td><samp>8-Array IR Sensor</samp></td></tr>
+<tr><td><samp>Motor Driver</samp></td><td><samp>TB6612FNG</samp></td></tr>
+<tr><td><samp>Motors</samp></td><td><samp>N20 DC Motors</samp></td></tr>
+<tr><td><samp>Control Algorithm</samp></td><td><samp>PID</samp></td></tr>
+<tr><td><samp>Multiplexer</samp></td><td><samp>Smart ELX Multiplexer</samp></td></tr>
+</table>
 
-If you find this project useful, consider giving the repository a star.
+---
+
+<div align="center">
+<samp><b>Author</b></samp>
+</div>
+
+<div align="center">
+<samp><strong>Yoson</strong></samp>
+
+<samp>Computer Science student interested in AI/ML, robotics, embedded systems, and automation.</samp>
+
+<samp>GitHub: https://github.com/yo5on</samp>
+</div>
+
+---
+
+<div align="center">
+<samp><b>License</b></samp>
+</div>
+
+<samp>This project is intended for educational and personal use. You are free to explore, modify, and extend the project for your own robotics and embedded systems experiments.</samp>
+
+<div align="center">
+<samp>If you find this project useful, consider giving the repository a star.</samp>
+</div>

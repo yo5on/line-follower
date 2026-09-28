@@ -41,11 +41,11 @@
 
 <table align="center">
 <tr><th><samp>Robot</samp></th><th><samp>Chassis</samp></th></tr>
-<tr><td><img src="pic1.jpeg" alt="Line Follower Robot"></td><td><img src="chasis.jpeg" alt="Line Follower Chassis"></td></tr>
+<tr><td><img src="images/pic1.jpeg" alt="Line Follower Robot"></td><td><img src="chasis.jpeg" alt="Line Follower Chassis"></td></tr>
 </table>
 
 <div align="center">
-<img src="pic2.jpeg" alt="Line Follower Project" width="70%">
+<img src="images/pic2.jpeg" alt="Line Follower Project" width="70%">
 </div>
 
 ---
@@ -82,7 +82,7 @@
 <tr><td><samp>Caster Wheel</samp></td><td><samp>1</samp></td></tr>
 <tr><td><samp>3.7V Li-ion Batteries</samp></td><td><samp>2</samp></td></tr>
 <tr><td><samp>MP1584 Buck Converter</samp></td><td><samp>1</samp></td></tr>
-<tr><td><samp>HW133A Buck Converter</samp></td><td><samp>1</samp></td></tr>
+<tr><td><samp>HW133A Buck Converter</samp></td><td><samp>1</samp></tr>
 <tr><td><samp>Push Buttons</samp></td><td><samp>2</samp></td></tr>
 <tr><td><samp>Capacitors</samp></td><td><samp>As required</samp></td></tr>
 <tr><td><samp>Connecting Wires and Chassis</samp></td><td><samp>1 set</samp></td></tr>
@@ -145,17 +145,18 @@ Kd = 2.5;
 ```text
 line-follower/
 │
+├── images/
+│   ├── pic1.jpeg
+│   └── pic2.jpeg
 ├── components
 ├── LICENSE
 ├── README.md
 ├── chasis.jpeg
 ├── code.ino
-├── pic1.jpeg
-├── pic2.jpeg
 └── wiring.jpeg
 ```
 
-<samp>The repository keeps the Arduino sketch, documentation assets, component list, and license at the project root.</samp>
+<samp>The repository keeps project photos in <code>images/</code>, while the chassis photo and wiring diagram remain at the project root.</samp>
 
 ---
 

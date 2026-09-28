@@ -1,4 +1,14 @@
-# High-Speed PID Line Follower Robot
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/yo5on/yo5on/main/hd-projects.svg" width="620" alt="projects"/>
+
+<samp><b>HIGH-SPEED PID LINE FOLLOWER ROBOT</b></samp>
+
+<samp>esp32 · c/c++ · pid · robotics · embedded systems</samp>
+
+</div>
+
+---
 
 A high-speed line follower robot built using an ESP32 NodeMCU and an 8-array IR sensor. The robot uses a Proportional-Integral-Derivative (PID) control algorithm to achieve smooth, responsive, and accurate line tracking at high speeds.
 
@@ -273,7 +283,5 @@ GitHub: https://github.com/yo5on
 ## License
 
 This project is intended for educational and personal use. You are free to explore, modify, and extend the project for your own robotics and embedded systems experiments.
-
----
 
 If you find this project useful, consider giving the repository a star.

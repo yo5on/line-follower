@@ -82,7 +82,7 @@
 <tr><td><samp>Caster Wheel</samp></td><td><samp>1</samp></td></tr>
 <tr><td><samp>3.7V Li-ion Batteries</samp></td><td><samp>2</samp></td></tr>
 <tr><td><samp>MP1584 Buck Converter</samp></td><td><samp>1</samp></td></tr>
-<tr><td><samp>HW133A Buck Converter</samp></td><td><samp>1</samp></tr>
+<tr><td><samp>HW133A Buck Converter</samp></td><td><samp>1</samp></td></tr>
 <tr><td><samp>Push Buttons</samp></td><td><samp>2</samp></td></tr>
 <tr><td><samp>Capacitors</samp></td><td><samp>As required</samp></td></tr>
 <tr><td><samp>Connecting Wires and Chassis</samp></td><td><samp>1 set</samp></td></tr>
@@ -149,7 +149,6 @@ line-follower/
 │   ├── pic1.jpeg
 │   └── pic2.jpeg
 ├── components
-├── LICENSE
 ├── README.md
 ├── chasis.jpeg
 ├── code.ino
@@ -232,7 +231,7 @@ cd line-follower
         |
         v
  TB6612FNG Driver
-      /     \
+      /     \\
      v       v
  N20 Motor  N20 Motor
 ```
@@ -339,12 +338,6 @@ PID Output =
 </div>
 
 ---
-
-<div align="center">
-<samp><b>License</b></samp>
-</div>
-
-<samp>This project is intended for educational and personal use. You are free to explore, modify, and extend the project for your own robotics and embedded systems experiments.</samp>
 
 <div align="center">
 <samp>If you find this project useful, consider giving the repository a star.</samp>

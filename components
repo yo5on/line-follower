@@ -2,7 +2,6 @@
 | -------------------------------- | ----------- |
 | ESP32 NodeMCU (38-pin)           | 1           |
 | TB6612FNG Motor Driver           | 1           |
-| 8-Array IR Sensor Module         | 1           |
 | Smart ELX RLS08 Sensor Board     | 1           |
 | Smart ELX 8-Channel Multiplexer  | 1           |
 | N20 DC Gear Motors (6V, 600 RPM) | 2           |

@@ -1,7 +1,4 @@
 <div align="center">
-
-<img src="https://raw.githubusercontent.com/yo5on/yo5on/main/hd-projects.svg" width="620" alt="projects"/>
-
 <samp><b>HIGH-SPEED PID LINE FOLLOWER ROBOT</b></samp>
 
 <samp>esp32 · c/c++ · pid · robotics · embedded systems</samp>

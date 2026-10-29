@@ -135,6 +135,22 @@ Kd = 2.5;
 
 ---
 
+<div align="center"><samp><b>ESP32 GPIO Mapping</b></samp></div>
+
+<table align="center">
+<tr><th><samp>Signal</samp></th><th><samp>ESP32 GPIO</samp></th></tr>
+<tr><td><samp>TB6612FNG PWMA / AIN1 / AIN2</samp></td><td><samp>4 / 17 / 16</samp></td></tr>
+<tr><td><samp>TB6612FNG PWMB / BIN1 / BIN2</samp></td><td><samp>21 / 18 / 19</samp></td></tr>
+<tr><td><samp>TB6612FNG STBY</samp></td><td><samp>5</samp></td></tr>
+<tr><td><samp>Multiplexer S0 / S1 / S2</samp></td><td><samp>27 / 26 / 25</samp></td></tr>
+<tr><td><samp>Multiplexer analog signal</samp></td><td><samp>33</samp></td></tr>
+<tr><td><samp>Start button / Calibration button / Status LED</samp></td><td><samp>13 / 14 / 2</samp></td></tr>
+</table>
+
+<samp>Multiplexer channels are read left-to-right in reverse sensor numbering: channel 0 is sensor 8 (leftmost, weight 0), and channel 7 is sensor 1 (rightmost, weight 7000). Confirm the sensor output voltage is within the ESP32 ADC range before connecting it; a 5 V analog output must be scaled to at most 3.3 V.</samp>
+
+---
+
 <div align="center">
 <samp><b>Repository Structure</b></samp>
 </div>

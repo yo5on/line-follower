@@ -362,3 +362,9 @@ PID Output =
 <div align="center">
 <samp>If you find this project useful, consider giving the repository a star.</samp>
 </div>
+
+---
+
+<div align="center"><samp><b>License</b></samp></div>
+
+<samp>This project's original code is licensed under the MIT License. See [LICENSE](LICENSE) for details. Third-party assets and dependencies remain under their respective licenses.</samp>

@@ -180,7 +180,7 @@ cd line-follower
 
 <samp><b>Open the Project</b></samp>
 
-<samp>Open <code>code.ino</code> in the Arduino IDE.</samp>
+<samp>Open <code>code.ino</code> in the Arduino IDE. The sketch includes a compatibility branch for the channel-based LEDC API in Arduino-ESP32 2.x and the pin-based LEDC API in 3.x. A real ESP32 upload is still needed to validate the selected core, wiring and motor direction.</samp>
 
 <samp><b>Install Required Software</b></samp>
 

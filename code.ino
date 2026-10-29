@@ -35,6 +35,7 @@ double output = 0;
 PID myPID(&input, &output, &setpoint, Kp, Ki, Kd, DIRECT);
 
 int sensorMin[8], sensorMax[8];
+bool sensorsCalibrated = false;
 bool isRunning = false;
 bool whiteLine = false;
 
@@ -180,7 +181,12 @@ void drive(int left, int right) {
 }
 
 void calibrate() {
+  sensorsCalibrated = false;
+  isRunning = false;
+  drive(0, 0);
+
   for (int i = 0; i < 8; i++) { sensorMin[i] = 4095; sensorMax[i] = 0; }
+  Serial.println("Calibrating for 5 seconds: move every sensor over both the line and the background.");
   unsigned long t = millis();
   while (millis() - t < 5000) {
     for (int i = 0; i < 8; i++) {
@@ -190,12 +196,35 @@ void calibrate() {
     }
     digitalWrite(ledStatus, (millis() / 100) % 2);
   }
+
+  sensorsCalibrated = true;
+  for (int i = 0; i < 8; i++) {
+    // A tiny range usually means that sensor never saw both surfaces.
+    if (sensorMax[i] - sensorMin[i] < 50) sensorsCalibrated = false;
+  }
+
+  digitalWrite(ledStatus, sensorsCalibrated ? HIGH : LOW);
+  Serial.println(sensorsCalibrated
+    ? "Calibration complete. Press START to run."
+    : "Calibration failed. Move every sensor across line and background, then try again.");
 }
 
 void checkButtons() {
   if (digitalRead(btnCalib) == LOW && !isRunning) { calibrate(); delay(500); }
   static bool lastState = HIGH;
   bool now = digitalRead(btnStart);
-  if (lastState == HIGH && now == LOW) { isRunning = !isRunning; delay(300); }
+  if (lastState == HIGH && now == LOW) {
+    if (isRunning) {
+      isRunning = false;
+      drive(0, 0);
+      Serial.println("Robot stopped.");
+    } else if (sensorsCalibrated) {
+      isRunning = true;
+      Serial.println("Line follower started.");
+    } else {
+      Serial.println("Calibrate first: press CALIB and move each sensor over the line and background.");
+    }
+    delay(300);
+  }
   lastState = now;
 }

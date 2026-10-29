@@ -149,6 +149,13 @@ Kd = 2.5;
 
 <samp>Multiplexer channels are read left-to-right in reverse sensor numbering: channel 0 is sensor 8 (leftmost, weight 0), and channel 7 is sensor 1 (rightmost, weight 7000). Confirm the sensor output voltage is within the ESP32 ADC range before connecting it; a 5 V analog output must be scaled to at most 3.3 V.</samp>
 
+<div align="center"><samp><b>Button Workflow</b></samp></div>
+
+- <samp><b>CALIB (GPIO 14):</b> while stopped, press the calibration button and move the sensor array so every sensor sees both the line and the background during the five-second calibration window.</samp>
+- <samp><b>START (GPIO 13):</b> starts or stops the robot. Starting is blocked until every sensor reports a usable calibration range.</samp>
+- <samp><b>Status LED (GPIO 2):</b> blinks during calibration, stays on after successful calibration, and stays off when calibration fails.</samp>
+- <samp>Both buttons use internal pull-ups and are active-low; connect each button between its GPIO and GND.</samp>
+
 ---
 
 <div align="center">

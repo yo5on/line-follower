@@ -59,10 +59,10 @@ void setup() {
 #if ESP_ARDUINO_VERSION_MAJOR >= 3
   pwmReady = ledcAttach(PWMA, 5000, 8) && ledcAttach(PWMB, 5000, 8);
 #else
-  const bool pwmLeftReady = ledcSetup(CH_LEFT, 5000, 8) > 0 &&
-                            ledcAttachPin(PWMA, CH_LEFT);
-  const bool pwmRightReady = ledcSetup(CH_RIGHT, 5000, 8) > 0 &&
-                             ledcAttachPin(PWMB, CH_RIGHT);
+  const bool pwmLeftReady = ledcSetup(CH_LEFT, 5000, 8) > 0;
+  const bool pwmRightReady = ledcSetup(CH_RIGHT, 5000, 8) > 0;
+  if (pwmLeftReady) ledcAttachPin(PWMA, CH_LEFT);
+  if (pwmRightReady) ledcAttachPin(PWMB, CH_RIGHT);
   pwmReady = pwmLeftReady && pwmRightReady;
 #endif
 

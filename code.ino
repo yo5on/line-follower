@@ -1,4 +1,5 @@
 #include <PID_v1.h>
+#include <esp_arduino_version.h>
 
 // ================= PIN MAPPING =================
 const int PWMA = 4, AIN1 = 17, AIN2 = 16;   
@@ -40,6 +41,8 @@ bool whiteLine = false;
 #define CH_LEFT  0
 #define CH_RIGHT 1
 
+bool pwmReady = false;
+
 void setup() {
   Serial.begin(115200);
   pinMode(AIN1, OUTPUT); pinMode(AIN2, OUTPUT);
@@ -52,10 +55,23 @@ void setup() {
 
   digitalWrite(STBY, HIGH);
 
-  ledcSetup(CH_LEFT, 5000, 8); 
-  ledcSetup(CH_RIGHT, 5000, 8);
-  ledcAttachPin(PWMA, CH_LEFT);
-  ledcAttachPin(PWMB, CH_RIGHT);
+  // Arduino-ESP32 3.x changed LEDC from channel-based calls to pin-based calls.
+#if ESP_ARDUINO_VERSION_MAJOR >= 3
+  pwmReady = ledcAttach(PWMA, 5000, 8) && ledcAttach(PWMB, 5000, 8);
+#else
+  const bool pwmLeftReady = ledcSetup(CH_LEFT, 5000, 8) > 0 &&
+                            ledcAttachPin(PWMA, CH_LEFT);
+  const bool pwmRightReady = ledcSetup(CH_RIGHT, 5000, 8) > 0 &&
+                             ledcAttachPin(PWMB, CH_RIGHT);
+  pwmReady = pwmLeftReady && pwmRightReady;
+#endif
+
+  if (!pwmReady) {
+    Serial.println("PWM setup failed; motors remain disabled.");
+    digitalWrite(STBY, LOW);
+  } else {
+    digitalWrite(STBY, HIGH);
+  }
 
   myPID.SetMode(AUTOMATIC);
   myPID.SetOutputLimits(-maxCorrection, maxCorrection); 
@@ -64,6 +80,11 @@ void setup() {
 
 void loop() {
   checkButtons();
+
+  if (!pwmReady) {
+    digitalWrite(STBY, LOW);
+    return;
+  }
 
   if (!isRunning) {
     drive(0, 0);
@@ -143,11 +164,19 @@ void detectLineColor() {
 void drive(int left, int right) {
   digitalWrite(AIN1, left >= 0);
   digitalWrite(AIN2, left < 0);
+#if ESP_ARDUINO_VERSION_MAJOR >= 3
+  ledcWrite(PWMA, constrain(abs(left), 0, 255));
+#else
   ledcWrite(CH_LEFT, constrain(abs(left), 0, 255));
+#endif
 
   digitalWrite(BIN1, right >= 0);
   digitalWrite(BIN2, right < 0);
+#if ESP_ARDUINO_VERSION_MAJOR >= 3
+  ledcWrite(PWMB, constrain(abs(right), 0, 255));
+#else
   ledcWrite(CH_RIGHT, constrain(abs(right), 0, 255));
+#endif
 }
 
 void calibrate() {
